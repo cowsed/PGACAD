@@ -1,0 +1,3 @@
+[submodule "vendor/klein"]
+	path = vendor/klein
+	url = git@github.com:jeremyong/klein.git
