@@ -26,10 +26,20 @@ set(PROJECT_SOURCES
         Geometry/2D/mesh2d.h
         Geometry/2D/mesh2d.cpp
 
+        UI/console.h
+        UI/console.cpp
+        UI/console.ui
+
+        UI/viewport.h
+        UI/viewport.cpp
+        UI/viewport.ui
+
         UI/aboutdialog.h
         UI/aboutdialog.cpp
         UI/aboutdialog.ui
 )
+
+include_directories(UI/)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(PGACAD
@@ -50,6 +60,8 @@ else()
     else()
         add_executable(PGACAD
             ${PROJECT_SOURCES}
+            UI/console.h UI/console.cpp UI/console.ui
+            UI/viewport.h UI/viewport.cpp UI/viewport.ui
         )
     endif()
 endif()
