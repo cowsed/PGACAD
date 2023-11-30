@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "UI/helpmenus.h"
 #include <QDialog>
 #include <QLabel>
 #include <QMessageBox>
@@ -8,6 +7,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+    about = new AboutDialog(this);
 }
 
 void MainWindow::Exit() {
@@ -15,10 +15,10 @@ void MainWindow::Exit() {
     this->close();
 }
 
-//void MainWindow::ShowAbout() {
-//    show_about_popup();
-//}
-//
+void MainWindow::ShowAbout() {
+    about->exec();
+}
+
 MainWindow::~MainWindow() {
     delete ui;
 }
