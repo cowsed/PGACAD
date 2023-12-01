@@ -19,7 +19,14 @@
   <property name="dockOptions">
    <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks|QMainWindow::GroupedDragging</set>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -68,40 +75,6 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QDockWidget" name="consoleDock">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:rgb(41, 62, 255)</string>
-   </property>
-   <property name="features">
-    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
-   </property>
-   <property name="windowTitle">
-    <string>Console</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="Console" name="consoleDockContents">
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:rgb(170, 0, 0)</string>
-    </property>
-   </widget>
-  </widget>
   <widget class="QDockWidget" name="viewportDock">
    <property name="windowTitle">
     <string>Viewport</string>
@@ -110,6 +83,12 @@
     <number>1</number>
    </attribute>
    <widget class="Viewport" name="viewportDockContents"/>
+  </widget>
+  <widget class="QDockWidget" name="consoleDock">
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="Console" name="consoleWidget"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
@@ -190,15 +169,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>Console</class>
-   <extends>QWidget</extends>
-   <header>console.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>Viewport</class>
    <extends>QWidget</extends>
    <header>viewport.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Console</class>
+   <extends>QWidget</extends>
+   <header>console.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -232,22 +211,6 @@
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionConsole</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>consoleDock</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>314</x>
      <y>299</y>
     </hint>
    </hints>
