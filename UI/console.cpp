@@ -11,8 +11,14 @@ void Console::RunCommand() {
     ui->cmdInput->setText("");
 
     QPalette p = palette();
-    ui->cmdOutput->append("<font color='" + p.light().color().name() + "'>  " + cmd + "</font>");
-    ui->cmdOutput->append("<font color='#ff0000'>Commands not yet supported</font>");
+
+    ui->cmdOutput->append("<font color='" + p.brightText().color().name() + "'>  " + cmd
+                          + "</font>");
+    AddError("Commands not supported yet");
+}
+
+void Console::AddError(const QString &str) {
+    ui->cmdOutput->append("<font color='#ff0000'>" + str + "</font>");
 }
 
 Console::~Console() {

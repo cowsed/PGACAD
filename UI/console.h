@@ -14,6 +14,7 @@ public:
     ~Console();
 public slots:
     void RunCommand();
+    void AddError(const QString &str);
 
 private:
     Ui::Console *ui;

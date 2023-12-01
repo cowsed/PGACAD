@@ -85,6 +85,9 @@
    <widget class="Viewport" name="viewportDockContents"/>
   </widget>
   <widget class="QDockWidget" name="consoleDock">
+   <property name="windowTitle">
+    <string>Console</string>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
